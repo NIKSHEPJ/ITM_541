@@ -1,0 +1,11 @@
+body {
+    background-image: url('assets/weather.jpg');
+  }
+  .parent {
+      text-align: center;
+      color: white;
+      display: inline;
+  }
+  table {
+    color: white;
+  }
