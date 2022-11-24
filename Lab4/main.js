@@ -20,10 +20,7 @@ function initialize() {
     .then(json=>{
         console.log(json)
         currentConditions = json;
-        document.getElementById('loc').innerHTML = json.region + " As of "+ json.currentConditions.dayhour;
-        //document.getElementById('day').innerHTML = json.currentConditions.dayhour;
-        document.getElementById('image').src = json.currentConditions.iconURL;
-        document.getElementById('comment').innerHTML = json.currentConditions.comment;
+        document.getElementById('loc').innerHTML = json.region +" , "  +json.currentConditions.dayhour ;
         document.getElementById('humidity').innerHTML = "Humidity: "+ json.currentConditions.humidity;
         document.getElementById('precip').innerHTML = "precip: " + json.currentConditions.precip;
         document.getElementById('temp').innerHTML = "Temp: " + json.currentConditions.temp.c + ' \u2103/' + json.currentConditions.temp.f + ' \u2109';
@@ -34,7 +31,7 @@ function initialize() {
   }
   function createTableForNextDays() {
       const nextDaysTable = document.getElementById('nextInfoTable');
-      let tableHeaders = ["Day", "Temp Max", "Temp Min", "Comment"];
+      let tableHeaders = ["Day", "Minimum", "Maxium", "Comment"];
       
           while (nextDaysTable.firstChild) nextDaysTable.removeChild(nextDaysTable.firstChild)
           
@@ -50,7 +47,6 @@ function initialize() {
           tableHeaders.forEach( header => {
               let nextHeader = document.createElement('th');
               nextHeader.style.padding='20px'
-              //nextHeader.width = "30%"
               nextHeader.innerText = header;
               nextTableHeaderRow.append(nextHeader)
           });
@@ -77,7 +73,7 @@ function initialize() {
       nextDaysDay.innerText = item.day;
 
       let nextDaysTempMin = document.createElement('td')
-      nextDaysTempMin.style.padding = '20px'
+      nextDaysTempMin.style.padding = '20px'; 
       nextDaysTempMin.innerText = item.min_temp.c + ' \u2103';
 
       let nextDaysTempMax = document.createElement('td')
@@ -96,13 +92,13 @@ function initialize() {
    console.log(error);
    switch(error.code) {
     case error.PERMISSION_DENIED:
-      x.innerHTML = "User denied the request for Geolocation."
+      x.innerHTML = "Denied permision ."
       break;
     case error.POSITION_UNAVAILABLE:
-      x.innerHTML = "Location information is unavailable."
+      x.innerHTML = "Location unavailable."
       break;
     case error.TIMEOUT:
-      x.innerHTML = "The request to get user location timed out."
+      x.innerHTML = "TimeOut."
       break;
     case error.UNKNOWN_ERROR:
       x.innerHTML = "An unknown error occurred."
