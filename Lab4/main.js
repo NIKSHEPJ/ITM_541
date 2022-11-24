@@ -4,7 +4,6 @@ function initialize() {
   }
 
   navigator.geolocation.getCurrentPosition(success, error);
-  //window.addEventListener("load", weatherRes);
   function success(position) {
    console.log(position);
    var lat = position.coords.latitude;
