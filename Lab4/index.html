@@ -6,23 +6,24 @@
     <body>
         <table style="width:100%">
                 <tr>
-                    <th style="width:50%">
-                        <input id="searchIn"/>
-                        <button onclick="getSearchStringInfo()">Click</button>
-                    </th>
-                    <th>
-                        <h1 id="loc"></h1>
-                    </th>  
+                    <h1>Weather Application</h1> 
+                    <th style="align-content: center;" >
+                        <input id="searchIn" placeholder="Enter city or Zip Code" />
+                        <button onclick="getSearchStringInfo()">Search</button>
+                        <button onclick="createTableForNextDays()">Weekly</button>
+                        <h1 id="loc"></h1> 
+                        <p id="humidity"></p>
+                        <p id="precip"></p>
+                        <p id="temp"></p>
+                        <p id="wind"></p>
+                    </th>     
                 </tr>
                 <tr>
                     <td>
-                        <!-- <div>
-                            <img src="" id="image" />
-                        </div> -->
                     </td>
                     <td style="margin: auto; padding-left: 30px">
                         <div>
-                            <div style="width:100%"> 
+                            <div style="width:50%"> 
                                     <div style="width: 20%; float: left;"> 
                                             <p id="comment"></p>
                                             
@@ -30,28 +31,19 @@
                                         <div style="margin-left: 20%;"> 
                                                 <img src="" id="image" />  
                                         </div>
-                                    
-                                    
+                                               
                             </div>
-                                
-                                <p id="humidity"></p>
-                                <p id="precip"></p>
+                                      
                         </div>
                     </td>
-                    <td style="margin: auto; padding-right: 30px"> 
-                      <div>
-                            <p id="temp"></p>
-                            <p id="wind"></p>
-                            <button onclick="createTableForNextDays()">Next 7 Days</button>
-                      </div>
-                    </td>
-                    <td></td>
+                
+        
                 </tr>
         </table>
 
         
         
-   <div id="nextInfoTable" style="padding-top: 100px; padding-left: 100px">
+   <div id="nextInfoTable" style="padding-top: 0px; padding-right: 0px; align-items: center;">
    </div>
     
 
